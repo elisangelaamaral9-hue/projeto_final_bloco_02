@@ -4,6 +4,7 @@ import { Categoria } from './categoria/entities/categoria.entitys';
 import { CategoriaModule } from './categoria/categoria.module';
 import { ProdutoModule } from './produtos/produto.module';
 import { Produto } from './produtos/entities/produto.entitys';
+import { Usuario } from './usuario/entities/usuario.entitys';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { Produto } from './produtos/entities/produto.entitys';
       username: 'root',
       password: 'root',
       database: 'db_projeto_final_bloco_02',
-      entities: [Categoria, Produto],
+      entities: [Categoria, Produto, Usuario],
       synchronize: true,
       logging :true,
     }),
