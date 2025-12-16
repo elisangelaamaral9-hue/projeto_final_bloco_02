@@ -1,5 +1,6 @@
 import { IsNotEmpty } from "class-validator"
-import { Column, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
+import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
+import { Produto } from "../../produtos/entities/produto.entitys"
 
 @Entity({name: "tb_categoria"})
 export class Categoria {
@@ -12,5 +13,12 @@ export class Categoria {
     @IsNotEmpty()
     @Column({length: 100, nullable: false})
     nome: string
+
+    // RELACIONAMENTO DE TABELAS
+   @OneToMany(() => Produto, (produto) => produto.categoria, {
+        onDelete: "CASCADE"
+    })
+    produto: Produto;
+
 
 }
